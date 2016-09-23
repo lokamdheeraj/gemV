@@ -1,0 +1,313 @@
+Binary file .fetch2.hh.swo matches
+Binary file .func_unit.hh.swp matches
+cpu.hh:    Counter totalInsts() const;
+Binary file .stats.cc.swo matches
+Binary file .fetch2.cc.swn matches
+Binary file .func_unit.cc.swo matches
+MinorCPU.py:        " retire time for this insts dest registers once it leaves the"
+MinorCPU.py:        "Size of input buffer to Fetch2 in cycles-worth of insts.")
+MinorCPU.py:        "Size of input buffer to Decode in cycles-worth of insts.")
+MinorCPU.py:        "Size of input buffer to Execute in cycles-worth of insts.")
+MinorCPU.py:        " the in flight insts queue")
+Binary file .execute.cc.swm matches
+pipeline.cc:    f2ToD(cpu.name() + ".f2ToD", "insts",
+pipeline.cc:    dToE(cpu.name() + ".dToE", "insts",
+Binary file .scoreboard.hh.swo matches
+Binary file .fetch2.cc.swp matches
+Binary file .stats.cc.swp matches
+dyn_inst.hh:/** MinorDynInsts are currently reference counted. */
+dyn_inst.hh:    static const InstSeqNum firstStreamSeqNum = 1;
+dyn_inst.hh:    static const InstSeqNum firstPredictionSeqNum = 1;
+dyn_inst.hh:    static const InstSeqNum firstLineSeqNum = 1;
+dyn_inst.hh:    static const InstSeqNum firstFetchSeqNum = 1;
+dyn_inst.hh:    static const InstSeqNum firstExecSeqNum = 1;
+dyn_inst.hh:    InstSeqNum streamSeqNum;
+dyn_inst.hh:    InstSeqNum predictionSeqNum;
+dyn_inst.hh:    InstSeqNum lineSeqNum;
+dyn_inst.hh:    InstSeqNum fetchSeqNum;
+dyn_inst.hh:    InstSeqNum execSeqNum;
+dyn_inst.hh:        ThreadID thread_id = 0, InstSeqNum stream_seq_num = 0,
+dyn_inst.hh:        InstSeqNum prediction_seq_num = 0, InstSeqNum line_seq_num = 0,
+dyn_inst.hh:        InstSeqNum fetch_seq_num = 0, InstSeqNum exec_seq_num = 0) :
+dyn_inst.hh:    InstSeqNum instToWaitFor;
+Binary file .fetch1.hh.swo matches
+stats.cc~:			numInsts
+stats.cc~:				.name(name + ".committedInsts")
+stats.cc~:			cpi = baseCpu.numCycles / numInsts;
+stats.cc~:			ipc = numInsts / baseCpu.numCycles;
+Binary file .execute.hh.swm matches
+Binary file .cpu.hh.swp matches
+Binary file .scoreboard.cc.swp matches
+fetch2.hh:    InstSeqNum lastStreamSeqNum;
+fetch2.hh:    InstSeqNum fetchSeqNum;
+fetch2.hh:    InstSeqNum expectedStreamSeqNum;
+fetch2.hh:    InstSeqNum predictionSeqNum;
+Binary file .func_unit.hh.swo matches
+Binary file .fetch1.hh.swl matches
+Binary file .scoreboard.hh.swp matches
+Binary file .fetch2.cc.swo matches
+dyn_inst.hh~:/** MinorDynInsts are currently reference counted. */
+dyn_inst.hh~:    static const InstSeqNum firstStreamSeqNum = 1;
+dyn_inst.hh~:    static const InstSeqNum firstPredictionSeqNum = 1;
+dyn_inst.hh~:    static const InstSeqNum firstLineSeqNum = 1;
+dyn_inst.hh~:    static const InstSeqNum firstFetchSeqNum = 1;
+dyn_inst.hh~:    static const InstSeqNum firstExecSeqNum = 1;
+dyn_inst.hh~:    InstSeqNum streamSeqNum;
+dyn_inst.hh~:    InstSeqNum predictionSeqNum;
+dyn_inst.hh~:    InstSeqNum lineSeqNum;
+dyn_inst.hh~:    InstSeqNum fetchSeqNum;
+dyn_inst.hh~:    InstSeqNum execSeqNum;
+dyn_inst.hh~:        ThreadID thread_id = 0, InstSeqNum stream_seq_num = 0,
+dyn_inst.hh~:        InstSeqNum prediction_seq_num = 0, InstSeqNum line_seq_num = 0,
+dyn_inst.hh~:        InstSeqNum fetch_seq_num = 0, InstSeqNum exec_seq_num = 0) :
+dyn_inst.hh~:    InstSeqNum instToWaitFor;
+Binary file .execute.cc.swn matches
+stats.hh~:    Stats::Scalar numInsts;
+stats.hh~:    /** Number of simulated insts and microops */
+stats.hh~:    /** CPI/IPC for total cycle counts and macro insts */
+scoreboard.cc:InstSeqNum
+scoreboard.cc:    InstSeqNum ret = 0;
+Binary file .decode.cc.swn matches
+fetch1.hh:    InstSeqNum streamSeqNum;
+fetch1.hh:    InstSeqNum predictionSeqNum;
+fetch1.hh:    InstSeqNum expectedLineSeqNum;
+fetch1.hh:    InstSeqNum lineSeqNum;
+cpu.cc:MinorCPU::totalInsts() const
+Binary file .execute.hh.swn matches
+Binary file .execute.cc.swp matches
+decode.hh:    InstSeqNum execSeqNum;
+lsq.hh:    InstSeqNum lastMemBarrier;
+lsq.hh:     *  inMemInsts instruction queue and have the right streamSeqNum. */
+lsq.hh:    InstSeqNum getLastMemBarrier() const { return lastMemBarrier; }
+decode.cc:    inputBuffer(name + ".inputBuffer", "insts", params.decodeInputBufferSize),
+decode.cc:    /* Get insts from the inputBuffer to work with */
+decode.cc:    ForwardInstData &insts_out = *out.inputWire;
+decode.cc:    assert(insts_out.isBubble());
+decode.cc:        const ForwardInstData *insts_in = getInput();
+decode.cc:        while (insts_in &&
+decode.cc:           inputIndex < insts_in->width() && /* Still more input */
+decode.cc:            MinorDynInstPtr inst = insts_in->insts[inputIndex];
+decode.cc:                if(output_index == 0) insts_out.resize(outputWidth);
+decode.cc:                insts_out.insts[output_index] = output_inst;
+decode.cc:            if (inputIndex == insts_in->width()) {
+decode.cc:                 * insts_in->width() */
+decode.cc:                insts_in = NULL;
+decode.cc:                    insts_in = getInput();
+decode.cc:         *  with bubble instructions by insts_out's initialisation
+decode.cc:         *      assert(insts_out.insts[output_index]->isBubble());
+decode.cc:    if (!insts_out.isBubble()) {
+decode.cc:insts_out.insts[ini]->executeInputBuffArrivalTime = curTick();
+decode.cc:        ,*insts_out.insts[ini] );
+decode.cc:    MINORTRACE("insts=%s\n", data.str());
+Binary file .scoreboard.cc.swn matches
+Binary file .decode.cc.swo matches
+Binary file .execute.cc.swl matches
+execute.hh:     *  of the in flight insts queue if their dependencies are met */
+execute.hh:     *  tell if there are insts still in the pipeline leading up to
+execute.hh:        DrainAllInsts /* Discarding all remaining insts */
+execute.hh:    Queue<QueuedInst, ReportTraitsAdaptor<QueuedInst> > *inFlightInsts;
+execute.hh:    Queue<QueuedInst, ReportTraitsAdaptor<QueuedInst> > *inFUMemInsts;
+execute.hh:    /** Structure for reporting insts currently being processed/retired
+execute.hh:    ForwardInstData instsBeingCommitted;
+execute.hh:    InstSeqNum streamSeqNum;
+execute.hh:    InstSeqNum lastPredictionSeqNum;
+execute.hh:    /** State progression for draining NotDraining -> ... -> DrainAllInsts */
+execute.hh:    bool isInbetweenInsts() const;
+execute.hh:     *  inFlightInsts instruction queue */
+stats.cc:			numInsts
+stats.cc:				.name(name + ".committedInsts")
+stats.cc:			cpi = baseCpu.numCycles / numInsts;
+stats.cc:			ipc = numInsts / baseCpu.numCycles;
+pipe_data.hh~:    InstSeqNum newStreamSeqNum;
+pipe_data.hh~:    InstSeqNum newPredictionSeqNum;
+pipe_data.hh~:        InstSeqNum new_stream_seq_num,
+pipe_data.hh~:        InstSeqNum new_prediction_seq_num,
+pipe_data.hh~:const unsigned int MAX_FORWARD_INSTS = 16;
+pipe_data.hh~:    /** Array of carried insts, ref counted */
+pipe_data.hh~:    MinorDynInstPtr insts[MAX_FORWARD_INSTS];
+pipe_data.hh~:    /** The number of insts slots that can be expected to be valid insts */
+pipe_data.hh~:    unsigned int numInsts;
+pipe_data.hh~:    unsigned int width() const { return numInsts; }
+pipe_data.hh~:    /** Copy the inst array only as far as numInsts */
+Binary file .decode.cc.swm matches
+execute.cc:		inputBuffer(name_ + ".inputBuffer", "insts",
+execute.cc:		instsBeingCommitted(params.executeCommitLimit),
+execute.cc:			 *  which need to be accounted for in the inFlightInsts
+execute.cc:			inFlightInsts = new Queue<QueuedInst,
+execute.cc:						      name_ + ".inFlightInsts", "insts", total_slots);
+execute.cc:			inFUMemInsts = new Queue<QueuedInst,
+execute.cc:						     name_ + ".inFUMemInsts", "insts", total_slots);
+execute.cc://DPRINTF (committQueVUL, "Insts %s, (Trying to commit error response %s\n" ,*inst, inst->committingTime);
+execute.cc:			const ForwardInstData *insts_in = getInput();
+execute.cc:			if (!insts_in)
+execute.cc:			/* Number of insts issues this cycle to check for issueLimit */
+execute.cc:			unsigned num_insts_issued = 0;
+execute.cc:			unsigned num_mem_insts_issued = 0;
+execute.cc:			unsigned num_insts_discarded = 0;
+execute.cc:				MinorDynInstPtr inst = insts_in->insts[inputIndex];
+execute.cc:						 *  inFlightInsts queue rather than having an FU. */
+execute.cc:							/* Issue free insts. to a fake numbered FU */
+execute.cc:							inFlightInsts->push(fu_inst);
+execute.cc:									////////////////////Arrival time to inFUMemInsts Queue
+execute.cc:									inFUMemInsts->push(fu_inst);
+execute.cc:								inFlightInsts->push(fu_inst);
+execute.cc:						num_mem_insts_issued++;
+execute.cc:						num_insts_discarded++;
+execute.cc:						num_insts_issued++;
+execute.cc:						if (num_insts_issued == issueLimit)
+execute.cc:				if (inputIndex == insts_in->width()) {
+execute.cc:					/* Set insts_in to null to force us to leave the surrounding
+execute.cc:					insts_in = NULL;
+execute.cc:						insts_in = getInput();
+execute.cc:			} while (insts_in && inputIndex < insts_in->width() &&
+execute.cc:					num_insts_issued != issueLimit && /* Still allowed to issue */
+execute.cc:					num_mem_insts_issued != memoryIssueLimit);
+execute.cc:			return num_insts_issued;
+execute.cc:				thread->numInsts++;
+execute.cc:				cpu.stats.numInsts++;
+execute.cc:			cpu.system->totalNumInsts++;
+execute.cc:			cpu.system->instEventQueue.serviceEvents(cpu.system->totalNumInsts);
+execute.cc:						 *  until it gets to the head of inFlightInsts */
+execute.cc://DPRINTF (committQueVUL, "Insts %s, (Committing inst %s\n" ,*inst, inst->ommittingTime);
+execute.cc:			 * We do this by looping on the front of the inFlightInsts queue for as
+execute.cc:			 *      than their position in the inFlightInsts queue, but after all
+execute.cc:			/* Number of insts committed this cycle to check against commitLimit */
+execute.cc:			unsigned int num_insts_committed = 0;
+execute.cc:			if (only_commit_microops && !inFlightInsts->empty()) {
+execute.cc:						*(inFlightInsts->front().inst),
+execute.cc:			while (!inFlightInsts->empty() && /* Some more instructions to process */
+execute.cc:					num_insts_committed != commitLimit /* Not reached commit limit */
+execute.cc:					DPRINTF(MinorInterrupt, "Committing tail of insts before"
+execute.cc:							*(inFlightInsts->front().inst));
+execute.cc:				QueuedInst *head_inflight_inst = &(inFlightInsts->front());
+execute.cc:				InstSeqNum head_exec_seq_num =
+execute.cc:				 *  Start by considering the the head of the in flight insts queue */
+execute.cc:				bool can_commit_insts = !inFlightInsts->empty() &&
+execute.cc:				DPRINTF(MinorExecute, "Trying to commit canCommitInsts: %d\n",
+execute.cc:						can_commit_insts);
+execute.cc://DPRINTF (committQueVUL, "Insts %s, (Trying to commit error response %s\n" ,*inst, inst->committingTime);
+execute.cc:				if (isInbetweenInsts() && tryPCEvents()) {
+execute.cc:				} else if (can_commit_insts) {
+execute.cc:					if (!inFUMemInsts->empty() && lsq.canRequest()) {
+execute.cc:							inFUMemInsts->front().inst;
+execute.cc://DPRINTF (committQueVUL, "Insts %s, (Trying to commit from mem FUs %s\n" ,*head_mem_ref_inst, head_mem_ref_inst->committingTime);
+execute.cc:					/* Try and commit FU-less insts */
+execute.cc:					/* Try to issue from the ends of FUs and the inFlightInsts
+execute.cc:						InstSeqNum fu_inst_seq_num = fu_inst.inst->id.execSeqNum;
+execute.cc://DPRINTF (committQueVUL, "Insts %s, (Trying to commit from FUs %s\n" ,*fu_inst.inst, fu_inst.inst->committingTime);
+execute.cc:							 *  mem insts before us */
+execute.cc:							 *  instruction wasn't the inFlightInsts head
+execute.cc:				/* Pop issued (to LSQ) and discarded mem refs from the inFUMemInsts
+execute.cc:					if (!inFUMemInsts->empty() &&
+execute.cc:							inFUMemInsts->front().inst == inst)
+execute.cc:						////////////////////Leave time to inFUMemInsts Queue
+execute.cc:						inFUMemInsts->pop();
+execute.cc:					/* Note that this includes discarded insts */
+execute.cc:					inFlightInsts->pop();
+execute.cc:					bool inFlightInsts = true;
+execute.cc:					vulCalculator(inst, inFlightInsts );
+execute.cc:DPRINTF (committQueVUL, "Insts %s, (committing time: %s, insertting time: %s), committ queue vulnerability is %s.\n", *inst,inst->committingTime ,inst->headofinFlight , temp);
+execute.cc:						instsBeingCommitted.insts[num_insts_committed] = inst;
+execute.cc:						num_insts_committed++;
+execute.cc:					if (num_insts_committed == commitLimit)
+execute.cc:		Execute::isInbetweenInsts() const
+execute.cc:			const ForwardInstData *insts_in = getInput();
+execute.cc:				/* Empty the instsBeingCommitted for MinorTrace */
+execute.cc:				instsBeingCommitted.bubbleFill();
+execute.cc:			if (interrupted && isInbetweenInsts()) {
+execute.cc:					if (inFlightInsts->empty()) {
+execute.cc:						DPRINTF(MinorInterrupt, "Waiting but no insts\n");
+execute.cc:						if (isInbetweenInsts())
+execute.cc:					} else if (drainState == DrainAllInsts) {
+execute.cc:				if (insts_in)
+execute.cc:				setDrainState(DrainAllInsts);
+execute.cc:				MinorDynInstPtr inst = getInput()->insts[inputIndex];
+execute.cc:			/* Could the head in flight insts be committed */
+execute.cc:			if (!inFlightInsts->empty()) {
+execute.cc:				const QueuedInst &head_inst = inFlightInsts->front();
+execute.cc:DPRINTF (committQueVUL, "Insts %s, headofinFlight %s\n" ,*(head_inst.inst), head_inst.inst->headofinFlight );
+execute.cc:			DPRINTF(Activity, "Need to tick num issued insts: %s%s%s%s%s%s\n",
+execute.cc:					(num_issued != 0 ? " (issued some insts)" : ""),
+execute.cc:				num_issued != 0 || /* Issued some insts this cycle */
+execute.cc:			std::ostringstream insts;
+execute.cc:			instsBeingCommitted.reportData(insts);
+execute.cc:			MINORTRACE("vvvvvvvvvvvinsts=%s inputIndex=%d streamSeqNum=%d"
+execute.cc:					" stalled=%s drainState=%d isInbetweenInsts=%d\n",
+execute.cc:					insts.str(), inputIndex, streamSeqNum, stalled.str(), drainState,
+execute.cc:					isInbetweenInsts());
+execute.cc:			inFlightInsts->minorTrace();
+execute.cc:			inFUMemInsts->minorTrace();
+execute.cc:			case Execute::DrainAllInsts:
+execute.cc:				os << "DrainAllInsts";
+execute.cc:			return drainState == DrainAllInsts &&
+execute.cc:				inFlightInsts->empty() &&
+execute.cc:		Execute::vulCalculator(MinorDynInstPtr inst, bool inFlightInsts)
+execute.cc:				if (!inFlightInsts)
+execute.cc:						////////////vulnerability of inFUMemInsts
+execute.cc:							DPRINTF(inFUMemInstVUL, "Inst:%s gets commited, inFUMemInsts Queue vul = %s.\n"
+execute.cc:				if (inFlightInsts)
+execute.cc:		delete inFlightInsts;
+execute.cc:			if (!inFlightInsts->empty())
+execute.cc:				ret = inFlightInsts->front().inst->id == inst->id;
+Binary file .pipeline.cc.swp matches
+scoreboard.hh:    std::vector<InstSeqNum> writingInst;
+scoreboard.hh:    InstSeqNum execSeqNumToWaitFor(MinorDynInstPtr inst,
+Binary file .stats.hh.swp matches
+func_unit.hh: *  their ends allowing Execute::commit to pick up timing-completed insts
+Binary file .stats.cc.swn matches
+Binary file .execute.cc.swo matches
+Binary file .scoreboard.hh.swn matches
+fetch2.cc:    ForwardInstData &insts_out = *out.inputWire;
+fetch2.cc:    assert(insts_out.isBubble());
+fetch2.cc:                    insts_out.resize(outputWidth);
+fetch2.cc:                insts_out.insts[output_index] = dyn_inst;
+fetch2.cc:         *  with bubble instructions by insts_out's initialisation */
+fetch2.cc:    if (!insts_out.isBubble()) {
+fetch2.cc:    MINORTRACE("inputIndex=%d havePC=%d predictionSeqNum=%d insts=%s\n",
+Binary file .MinorCPU.py.swp matches
+pipe_data.hh:    InstSeqNum newStreamSeqNum;
+pipe_data.hh:    InstSeqNum newPredictionSeqNum;
+pipe_data.hh:        InstSeqNum new_stream_seq_num,
+pipe_data.hh:        InstSeqNum new_prediction_seq_num,
+pipe_data.hh:const unsigned int MAX_FORWARD_INSTS = 16;
+pipe_data.hh:    /** Array of carried insts, ref counted */
+pipe_data.hh:    MinorDynInstPtr insts[MAX_FORWARD_INSTS];
+pipe_data.hh:    /** The number of insts slots that can be expected to be valid insts */
+pipe_data.hh:    unsigned int numInsts;
+pipe_data.hh:    unsigned int width() const { return numInsts; }
+pipe_data.hh:    /** Copy the inst array only as far as numInsts */
+cpu.hh~:    Counter totalInsts() const;
+Binary file .fetch2.cc.swm matches
+fetch2.hh~:    InstSeqNum lastStreamSeqNum;
+fetch2.hh~:    InstSeqNum fetchSeqNum;
+fetch2.hh~:    InstSeqNum expectedStreamSeqNum;
+fetch2.hh~:    InstSeqNum predictionSeqNum;
+stats.hh:    Stats::Scalar numInsts;
+stats.hh:    /** Number of simulated insts and microops */
+stats.hh:    /** CPI/IPC for total cycle counts and macro insts */
+pipe_data.cc:    numInsts(width)
+pipe_data.cc:    numInsts = src.numInsts;
+pipe_data.cc:    for (unsigned int i = 0; i < src.numInsts; i++)
+pipe_data.cc:        insts[i] = src.insts[i];
+pipe_data.cc:    return numInsts == 0 || insts[0]->isBubble();
+pipe_data.cc:    for (unsigned int i = 0; i < numInsts; i++)
+pipe_data.cc:        insts[i] = MinorDynInst::bubble();
+pipe_data.cc:    assert(width < MAX_FORWARD_INSTS);
+pipe_data.cc:    numInsts = width;
+pipe_data.cc:        while (i != numInsts) {
+pipe_data.cc:            insts[i]->reportData(os);
+pipe_data.cc:            if (i != numInsts)
+Binary file .execute.hh.swo matches
+Binary file .decode.cc.swp matches
+MinorCPU.py~:        " retire time for this insts dest registers once it leaves the"
+MinorCPU.py~:        "Size of input buffer to Fetch2 in cycles-worth of insts.")
+MinorCPU.py~:        "Size of input buffer to Decode in cycles-worth of insts.")
+MinorCPU.py~:        "Size of input buffer to Execute in cycles-worth of insts.")
+MinorCPU.py~:        " the in flight insts queue")
+Binary file .fetch2.hh.swn matches
+Binary file .fetch2.hh.swp matches
+Binary file .fetch1.hh.swp matches
+Binary file .MinorCPU.py.swo matches
+func_unit.cc:    FUPipelineBase(name, "insts", description_.opLat),
+Binary file .decode.hh.swp matches
+Binary file .execute.hh.swp matches

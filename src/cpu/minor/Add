@@ -1,0 +1,488 @@
+Binary file .fetch2.cc.swn matches
+Binary file .func_unit.cc.swo matches
+Binary file .fetch1.cc.swn matches
+Binary file .execute.cc.swm matches
+Binary file .fetch2.cc.swp matches
+dyn_inst.hh:    bool isMemRef() const { return isInst() && staticInst->isMemRef(); }
+Binary file .scoreboard.cc.swp matches
+Binary file .func_unit.hh.swo matches
+Binary file .scoreboard.cc.swo matches
+Binary file .fetch2.cc.swo matches
+dyn_inst.hh~:    bool isMemRef() const { return isInst() && staticInst->isMemRef(); }
+Binary file .execute.cc.swn matches
+scoreboard.cc:    if (inst->isFault())
+scoreboard.cc:    StaticInstPtr staticInst = inst->staticInst;
+scoreboard.cc:    unsigned int num_dests = staticInst->numDestRegs();
+scoreboard.cc://std::cout <<"before flattenRegindex: " << curTick() << "  " << *inst  << "  num_dests: " << num_dests << "ISAregIndex " << staticInst->destRegIdx(dest_index) <<  "\n";
+scoreboard.cc:            staticInst->destRegIdx(dest_index), thread_context);
+scoreboard.cc:inst->sbnumUnpredResultsVul += scVulCal.vulOnReadnumUnpredResults(index);
+scoreboard.cc:                *inst,index,inst->sbnumUnpredResultsVul);
+scoreboard.cc:            inst->flatDestRegIdx[dest_index] = reg;
+scoreboard.cc:inst->sbnumResultsVul += scVulCal.vulOnReadnumResults(index);
+scoreboard.cc:                *inst,index,inst->sbnumResultsVul);
+scoreboard.cc:inst->sbwritingInstVul += scVulCal.vulOnReadwritingInst(index);
+scoreboard.cc:                *inst,index,inst->sbwritingInstVul);
+scoreboard.cc:            if (inst->id.execSeqNum > writingInst[index]) {
+scoreboard.cc:                writingInst[index] = inst->id.execSeqNum;
+scoreboard.cc:                fuIndices[index] = inst->fuIndex;
+scoreboard.cc:            inst->flatDestRegIdx[dest_index] = TheISA::ZeroReg;
+scoreboard.cc:    if (inst->isFault())
+scoreboard.cc:    StaticInstPtr staticInst = inst->staticInst;
+scoreboard.cc:    unsigned int num_srcs = staticInst->numSrcRegs();
+scoreboard.cc:        RegIndex reg = flattenRegIndex(staticInst->srcRegIdx(src_index),
+scoreboard.cc:inst->sbwritingInstVul += scVulCal.vulOnReadwritingInst(index);
+scoreboard.cc:                *inst,index,inst->sbwritingInstVul);
+scoreboard.cc:    if (inst->isFault())
+scoreboard.cc:    StaticInstPtr staticInst = inst->staticInst;
+scoreboard.cc:    unsigned int num_dests = staticInst->numDestRegs();
+scoreboard.cc:        RegIndex reg = inst->flatDestRegIdx[dest_index];
+scoreboard.cc:inst->sbnumUnpredResultsVul += scVulCal.vulOnReadnumUnpredResults(index);
+scoreboard.cc:                *inst,index,inst->sbnumUnpredResultsVul);
+scoreboard.cc:inst->sbnumResultsVul += scVulCal.vulOnReadnumResults(index);
+scoreboard.cc:                *inst,index,inst->sbnumResultsVul);
+scoreboard.cc:    if (inst->isFault())
+scoreboard.cc:    StaticInstPtr staticInst = inst->staticInst;
+scoreboard.cc:    unsigned int num_srcs = staticInst->numSrcRegs();
+scoreboard.cc:        RegIndex reg = flattenRegIndex(staticInst->srcRegIdx(src_index),
+scoreboard.cc:inst->sbfuIndicesVul += scVulCal.vulOnReadfuIndices(index);
+scoreboard.cc:                *inst,index,inst->sbfuIndicesVul);
+scoreboard.cc:inst->sbreturnCycleVul += scVulCal.vulOnReadreturnCycle(index);
+scoreboard.cc:inst->sbnumUnpredResultsVul += scVulCal.vulOnReadnumUnpredResults(index);
+scoreboard.cc:                *inst,index,inst->sbreturnCycleVul,inst->sbnumUnpredResultsVul);
+scoreboard.cc:                staticInst->disassemble(0), num_srcs, num_relative_latencies);
+Binary file .decode.cc.swn matches
+t.txt:execute.cc://DPRINTF (committQueVUL, "Insts %s, (Trying to commit error response %s\n" ,*inst, inst->committingTime);
+t.txt:execute.cc://DPRINTF (committQueVUL, "Insts %s, (Committing inst %s\n" ,*inst, inst->ommittingTime);
+t.txt:execute.cc://DPRINTF (committQueVUL, "Insts %s, (Trying to commit error response %s\n" ,*inst, inst->committingTime);
+t.txt:execute.cc://DPRINTF (committQueVUL, "Insts %s, (Trying to commit from mem FUs %s\n" ,*head_mem_ref_inst, head_mem_ref_inst->committingTime);
+t.txt:execute.cc:						InstSeqNum fu_inst_seq_num = fu_inst.inst->id.execSeqNum;
+t.txt:execute.cc://DPRINTF (committQueVUL, "Insts %s, (Trying to commit from FUs %s\n" ,*fu_inst.inst, fu_inst.inst->committingTime);
+t.txt:execute.cc:DPRINTF (committQueVUL, "Insts %s, (committing time: %s, insertting time: %s), committ queue vulnerability is %s.\n", *inst,inst->committingTime ,inst->headofinFlight , temp);
+t.txt:execute.cc:DPRINTF (committQueVUL, "Insts %s, headofinFlight %s\n" ,*(head_inst.inst), head_inst.inst->headofinFlight );
+t.txt:execute.cc:				ret = inFlightInsts->front().inst->id == inst->id;
+exec_context.hh~:        DPRINTF(MinorExecute, "ExecContext setting PC: %s\n", inst->pc);
+exec_context.hh~:        pcState(inst->pc);
+exec_context.hh~:inst->regFileVul = temp;
+exec_context.hh~:inst->regFileVul = temp;
+exec_context.hh~:inst->regFileVul = temp;
+exec_context.hh~:inst->regFileVul = temp;
+exec_context.hh~:inst->regFileVul = temp;
+exec_context.hh~:        inst->ea = ea;
+exec_context.hh~:        return inst->ea;
+Binary file .lsq.cc.swo matches
+Binary file .execute.cc.swp matches
+decode.cc:    inst->traceData = cpu.getTracer()->getInstRecord(curTick(),
+decode.cc:        cpu.getContext(inst->id.threadId),
+decode.cc:        inst->staticInst, inst->pc, static_inst);
+decode.cc:    if (inst->traceData)
+decode.cc:        inst->traceData->setFetchSeq(inst->id.execSeqNum);
+decode.cc:inst->decodeInputBuffLeaveTime = curTick();
+decode.cc:tofMI=inst->decodeInputBuffArrivalTime; 
+decode.cc:            if (inst->isBubble()) {
+decode.cc:                StaticInstPtr static_inst = inst->staticInst;
+decode.cc:                if (inst->isFault()) {
+decode.cc:                        inst->fault->name());
+decode.cc:                } else if (static_inst->isMacroop()) {
+decode.cc:                        microopPC = inst->pc;
+decode.cc:                        static_inst->fetchMicroop(microopPC.microPC());
+decode.cc:                    output_inst = new MinorDynInst(inst->id);
+decode.cc:                    output_inst->pc = microopPC;
+decode.cc:                    output_inst->staticInst = static_micro_inst;
+decode.cc:                    output_inst->fault = NoFault;
+decode.cc:                    if (static_micro_inst->isLastMicroop()) {
+decode.cc:                        output_inst->predictedTaken = inst->predictedTaken;
+decode.cc:                        output_inst->predictedTarget = inst->predictedTarget;
+decode.cc:                        (static_micro_inst->isLastMicroop() ?
+decode.cc:output_inst->decodeInputBuffArrivalTime = tofMI;
+decode.cc:output_inst->decodeInputBuffLeaveTime = curTick();
+decode.cc:                    static_micro_inst->advancePC(microopPC);
+decode.cc:                    if (static_micro_inst->isLastMicroop()) {
+decode.cc:output_inst->decodeInputBuffLeaveTime = curTick();
+decode.cc:                output_inst->id.execSeqNum = execSeqNum;
+decode.cc:output_inst->executeInputBuffArrivalTime = curTick();
+decode.cc:output_inst->decodeInputBuffLeaveTime = curTick();
+exec_context.hh:        DPRINTF(MinorExecute, "ExecContext setting PC: %s\n", inst->pc);
+exec_context.hh:        pcState(inst->pc);
+exec_context.hh:inst->regFileVul += temp;
+exec_context.hh:inst->regFileVul += temp;
+exec_context.hh:inst->regFileVul += temp;
+exec_context.hh:inst->regFileVul += temp;
+exec_context.hh:inst->regFileVul = temp;
+exec_context.hh:        inst->ea = ea;
+exec_context.hh:        return inst->ea;
+Binary file .scoreboard.cc.swn matches
+Binary file .fetch1.cc.swo matches
+Binary file .decode.cc.swo matches
+Binary file .execute.cc.swl matches
+Binary file .execute.cc.swk matches
+fetch1.cc:execute_branch.inst->exeToF1BrBuffLeaveTime = curTick();
+fetch1.cc:                                                long temp = curTick() - execute_branch.inst->exeToF1BrBuffArrivalTime;
+fetch1.cc:                                               execute_branch.inst->exeToF1BrBuffArrivalTime = -1;
+fetch1.cc:                                                execute_branch.inst->exeToF1BrBuffLeaveTime = -1;
+fetch1.cc:                                                long temp = curTick() - execute_branch.inst->exeToF1BrBuffArrivalTime;
+fetch1.cc:                                               execute_branch.inst->exeToF1BrBuffArrivalTime = -1;
+fetch1.cc:                                                execute_branch.inst->exeToF1BrBuffLeaveTime = -1;
+pipe_data.hh~:        /* Suspend fetching for this thread (inst->id.threadId).
+Binary file .lsq.cc.swp matches
+Binary file .decode.cc.swm matches
+execute.cc:			ThreadContext *thread = cpu.getContext(inst->id.threadId);
+execute.cc:			const TheISA::PCState &pc_before = inst->pc;
+execute.cc:				!inst->isFault() &&
+execute.cc:				inst->isLastOpInInst() &&
+execute.cc:				(inst->staticInst->isSerializeAfter() ||
+execute.cc:				 inst->staticInst->isIprAccess());
+execute.cc:				TheISA::advancePC(target, inst->staticInst);
+execute.cc:			if (inst->predictedTaken && !force_branch) {
+execute.cc:							inst->pc.instAddr(), inst->predictedTarget.instAddr(), *inst);
+execute.cc:				} else if (inst->predictedTarget == target) {
+execute.cc:							inst->pc.instAddr(), inst->predictedTarget.instAddr(), *inst);
+execute.cc:							inst->pc.instAddr(), inst->predictedTarget.instAddr(),
+execute.cc:						inst->pc.instAddr(), target.instAddr(), *inst);
+execute.cc:						(inst->isBubble() ? lastPredictionSeqNum
+execute.cc:						 : inst->id.predictionSeqNum),
+execute.cc:inst->exeToF1BrBuffArrivalTime = curTick();
+execute.cc:			ThreadID thread_id = inst->id.threadId;
+execute.cc:			bool is_load = inst->staticInst->isLoad();
+execute.cc:			bool is_store = inst->staticInst->isStore();
+execute.cc:			bool is_prefetch = inst->staticInst->isDataPrefetch();
+execute.cc:				if (inst->staticInst->isPrefetch()) {
+execute.cc:					fault->invoke(thread, inst->staticInst);
+execute.cc:inst->committingTime = curTick();
+execute.cc://inst->committingTime = curTick();
+execute.cc://DPRINTF (committQueVUL, "Insts %s, (Trying to commit error response %s\n" ,*inst, inst->committingTime);
+execute.cc:				fault = inst->staticInst->completeAcc(packet, &context,
+execute.cc:						inst->traceData);
+execute.cc:					fault->invoke(thread, inst->staticInst);
+execute.cc:			if (inst->traceData) {
+execute.cc:				inst->traceData->setPredicate((use_context_predicate ?
+execute.cc:				ThreadContext *thread = cpu.getContext(inst->id.threadId);
+execute.cc:				ExecContext context(cpu, *cpu.threads[inst->id.threadId],
+execute.cc:				Fault init_fault = inst->staticInst->initiateAcc(&context,
+execute.cc:						inst->traceData);
+execute.cc:					if (inst->traceData)
+execute.cc:						inst->traceData->setPredicate(passed_predicate);
+execute.cc:				ThreadID thread_id = inst->id.threadId;
+execute.cc:				Fault fault = inst->fault;
+execute.cc:				if (inst->isBubble()) {
+execute.cc:				} else if (inst->id.streamSeqNum != streamSeqNum) {
+execute.cc:						(!inst->staticInst->isMicroop() ||
+execute.cc:						 !inst->staticInst->isFirstMicroop()))
+execute.cc:						bool fu_is_capable = (!inst->isFault() ?
+execute.cc:								fu->provides(inst->staticInst->opClass()) : true);
+execute.cc:						if (inst->isNoCostInst()) {
+execute.cc:							inst->fuIndex = noCostFUIndex;
+execute.cc:							inst->extraCommitDelay = Cycles(0);
+execute.cc:							inst->extraCommitDelayExpr = NULL;
+execute.cc:							inst->executeInputBuffLeaveTime = curTick();
+execute.cc:								inst->inFlightInstQueArrivalTime = curTick();
+execute.cc:							MinorFUTiming *timing = (!inst->isFault() ?
+execute.cc:									fu->findTiming(inst->staticInst) : NULL);
+execute.cc:inst->fuArrivalTime = curTick();
+execute.cc:								bool issued_mem_ref = inst->isMemRef();
+execute.cc:								inst->fuIndex = fu_index;
+execute.cc:								inst->extraCommitDelay = extra_dest_retire_lat;
+execute.cc:								inst->extraCommitDelayExpr =
+execute.cc:										inst->instToWaitFor =
+execute.cc:												inst->instToWaitFor)
+execute.cc:											inst->instToWaitFor =
+execute.cc:													*inst, inst->instToWaitFor);
+execute.cc:										inst->canEarlyIssue = true;
+execute.cc:										inst->inFUMemInstQueArrivalTime = curTick();
+execute.cc:								inst->executeInputBuffLeaveTime = curTick();
+execute.cc:									inst->inFlightInstQueArrivalTime = curTick();
+execute.cc:					if (DTRACE(MinorTrace) && !inst->isBubble())
+execute.cc:						inst->minorTraceInst(*this);
+execute.cc:					if (!discarded && inst->isInst() &&
+execute.cc:							inst->staticInst->isMemBarrier())
+execute.cc:					if (inst->traceData && setTraceTimeOnIssue) {
+execute.cc:						inst->traceData->setWhen(curTick());
+execute.cc:						inst->executeInputBuffLeaveTime = curTick();
+execute.cc:if ( inst->fuArrivalTime && ( inst->fuLeaveTime  || inst->inFUMemInstQueLeaveTime)  )
+execute.cc:long temp = inst->fuLeaveTime;
+execute.cc:if (inst->staticInst->isMemRef())
+execute.cc:if (!inst->fuLeaveTime)temp = inst->inFUMemInstQueLeaveTime;
+execute.cc:DPRINTF (fuVUL, "Inst%s spends %s ticks in its FU(In = %s, out = %s).\n", *inst, temp - inst->fuArrivalTime,inst->fuArrivalTime , temp  );
+execute.cc:cpu.stats.fuVul += temp - inst->fuArrivalTime,inst->fuArrivalTime;
+execute.cc:if (!inst->fuArrivalTime) std::cout << "we don't know FU arrival time for "<< *inst << "\n";
+execute.cc:if (!inst->fuLeaveTime && !inst->inFUMemInstQueLeaveTime) std::cout << "we don't know FU Leave time for "<< *inst << "\n";
+execute.cc:			assert(!inst->isFault());
+execute.cc:			MinorThread *thread = cpu.threads[inst->id.threadId];
+execute.cc:			if (!inst->staticInst->isMicroop() || inst->staticInst->isLastMicroop())
+execute.cc:			cpu.comInstEventQueue[inst->id.threadId]->serviceEvents(thread->numInst);
+execute.cc:			if (inst->traceData)
+execute.cc:				inst->traceData->setCPSeq(thread->numOp);
+execute.cc:			ThreadID thread_id = inst->id.threadId;
+execute.cc:inst->committingTime = curTick();
+execute.cc:			} else if (inst->isFault()) {
+execute.cc:						inst->fault->name());
+execute.cc:				fault = inst->fault;
+execute.cc:				inst->fault->invoke(thread, NULL);
+execute.cc:			} else if (inst->staticInst->isMemRef()) {
+execute.cc:						inst->canEarlyIssue = false;
+execute.cc:			} else if (inst->isInst() && inst->staticInst->isMemBarrier() &&
+execute.cc://DPRINTF (committQueVUL, "Insts %s, (Committing inst %s\n" ,*inst, inst->ommittingTime);
+execute.cc://inst->committingTime = curTick();
+execute.cc:				fault = inst->staticInst->execute(&context,
+execute.cc:						inst->traceData);
+execute.cc:				if (inst->traceData)
+execute.cc:					inst->traceData->setPredicate(context.readPredicate());
+execute.cc:					fault->invoke(thread, inst->staticInst);
+execute.cc:				lastPredictionSeqNum = inst->id.predictionSeqNum;
+execute.cc:				if (!inst->isFault() &&
+execute.cc:							" inst: %s\n", inst->id.threadId, *inst);
+execute.cc:head_inflight_inst->inst->headofinFlight = curTick();
+execute.cc:					head_inflight_inst->inst->id.execSeqNum;
+execute.cc:				MinorDynInstPtr inst = head_inflight_inst->inst;
+execute.cc:					(inst->inLSQ ? lsq.findResponse(inst) : NULL);
+execute.cc://inst->committingTime = curTick();
+execute.cc://DPRINTF (committQueVUL, "Insts %s, (Trying to commit error response %s\n" ,*inst, inst->committingTime);
+execute.cc:					discard_inst = inst->id.streamSeqNum != streamSeqNum ||
+execute.cc:						FUPipeline *fu = funcUnits[head_mem_ref_inst->fuIndex];
+execute.cc:head_mem_ref_inst->committingTime = curTick();
+execute.cc://DPRINTF (committQueVUL, "Insts %s, (Trying to commit from mem FUs %s\n" ,*head_mem_ref_inst, head_mem_ref_inst->committingTime);
+execute.cc:						if (!fu_inst->isBubble() &&
+execute.cc:								!fu_inst->inLSQ &&
+execute.cc:								fu_inst->canEarlyIssue &&
+execute.cc:								streamSeqNum == fu_inst->id.streamSeqNum &&
+execute.cc:								head_exec_seq_num > fu_inst->instToWaitFor)
+execute.cc:									*(fu_inst), fu_inst->instToWaitFor);
+execute.cc:					if (!completed_inst && inst->isNoCostInst()) {
+execute.cc:					if (!completed_inst && !inst->inLSQ) {
+execute.cc://inst->fuLeaveTime = curTick();
+execute.cc:if (!funcUnits[inst->fuIndex]->front().inst->fuLeaveTmSet)
+execute.cc:funcUnits[inst->fuIndex]->front().inst->fuLeaveTime = curTick();
+execute.cc:							funcUnits[inst->fuIndex]->front();
+execute.cc:						InstSeqNum fu_inst_seq_num = fu_inst.inst->id.execSeqNum;
+execute.cc://fu_inst.inst->committingTime = curTick();
+execute.cc://DPRINTF (committQueVUL, "Insts %s, (Trying to commit from FUs %s\n" ,*fu_inst.inst, fu_inst.inst->committingTime);
+execute.cc:						if (fu_inst.inst->isBubble()) {
+execute.cc://inst->fuLeaveTime = curTick();
+execute.cc://inst->fuLeaveTime = curTick();
+execute.cc:						discard_inst = inst->id.streamSeqNum != streamSeqNum ||
+execute.cc:							if (inst->extraCommitDelayExpr) {
+execute.cc:									cpu.getContext(inst->id.threadId);
+execute.cc:								TimingExprEvalContext context(inst->staticInst,
+execute.cc:								uint64_t extra_delay = inst->extraCommitDelayExpr->
+execute.cc:									inst->extraCommitDelay += Cycles(extra_delay);
+execute.cc:								inst->extraCommitDelayExpr = NULL;
+execute.cc:							if (inst->extraCommitDelay != Cycles(0)) {
+execute.cc:								inst->minimumCommitCycle = cpu.curCycle() +
+execute.cc:									inst->extraCommitDelay;
+execute.cc:								inst->extraCommitDelay = Cycles(0);
+execute.cc:							if (!inst->isFault() && inst->isMemRef() &&
+execute.cc:									inst->id.execSeqNum &&
+execute.cc:							} else if (inst->minimumCommitCycle > now) {
+execute.cc:										*inst, inst->minimumCommitCycle - now);
+execute.cc:							if (inst->fuIndex != noCostFUIndex)
+execute.cc:								funcUnits[inst->fuIndex]->stalled = false;
+execute.cc:					inst->fuIndex = 0;
+execute.cc:					inst->inLSQ = true;
+execute.cc:				if (completed_inst && inst->isMemRef()) {
+execute.cc://inst->fuLeaveTime = curTick();
+execute.cc:							inst->inFUMemInstQueLeaveTime = curTick();
+execute.cc:					lastCommitWasEndOfMacroop = inst->isFault() ||
+execute.cc:						inst->isLastOpInInst();
+execute.cc:					lastPredictionSeqNum = inst->id.predictionSeqNum;
+execute.cc:						inst->inFlightInstQueLeaveTime = curTick();
+execute.cc:					if (inst->isInst() && inst->staticInst->isMemBarrier()) {
+execute.cc:					scoreboard.clearInstDests(inst, inst->isMemRef());
+execute.cc:inst->committingTime = curTick();
+execute.cc:if ( inst->committingTime  &&  inst->headofinFlight && (inst->headofinFlight < inst->committingTime) )
+execute.cc:long temp = inst->committingTime - inst->headofinFlight;
+execute.cc:DPRINTF (committQueVUL, "Insts %s, (committing time: %s, insertting time: %s), committ queue vulnerability is %s.\n", *inst,inst->committingTime ,inst->headofinFlight , temp);
+execute.cc://if (inst->headofinFlight || (inst->headofinFlight > inst->committingTime) )std::cout << "Wrong (commit queue), Inst= "<< *inst << "inst->headofinFlight is zero.\n";
+execute.cc:					bool is_no_cost_inst = inst->isNoCostInst();
+execute.cc:					if (inst->traceData) {
+execute.cc:							inst->traceData->setWhen(curTick());
+execute.cc:						inst->traceData->dump();
+execute.cc:				//if ( inst->decodeInputBuffLeaveTime == 0) inst->decodeInputBuffLeaveTime = curTick();
+execute.cc:				if (inst->isFault()) {
+execute.cc:				} else if (!inst->isBubble()) {
+execute.cc:					if (cpu.getContext(inst->id.threadId)->status() !=
+execute.cc:						next_issuable_inst->executeInputBuffLeaveTime = curTick();
+execute.cc:							cpu.getContext(next_issuable_inst->id.threadId)) &&
+execute.cc:						fu->provides(next_issuable_inst->staticInst->opClass()))
+execute.cc:					inst->executeInputBuffLeaveTime = curTick();
+execute.cc:head_inst.inst->headofinFlight = curTick();
+execute.cc:DPRINTF (committQueVUL, "Insts %s, headofinFlight %s\n" ,*(head_inst.inst), head_inst.inst->headofinFlight );
+execute.cc:				if (head_inst.inst->isNoCostInst()) {
+execute.cc://head_inst.inst->fuLeaveTime = curTick();
+execute.cc:					FUPipeline *fu = funcUnits[head_inst.inst->fuIndex];
+execute.cc:								fu->front().inst->id == head_inst.inst->id) ||
+execute.cc:if (!fu->front().inst->fuLeaveTmSet )
+execute.cc:fu->front().inst->fuLeaveTime = curTick();
+execute.cc:fu->front().inst->fuLeaveTime = curTick();
+execute.cc:fu->front().inst->fuLeaveTmSet = true;
+execute.cc://long temp = inst->inFlightInstQueLeaveTime - curTick();
+execute.cc:					////////////////inst->exeToF1BrBuffArrivalTime = curTick();
+execute.cc:                                        if (inst->exeToF1BrBuffArrivalTime && inst->exeToF1BrBuffLeaveTime && inst->exeToF1BrBuffArrivalTime != -1 && inst->exeToF1BrBuffLeaveTime != -1  )
+execute.cc:						long temp = inst->exeToF1BrBuffArrivalTime - inst->exeToF1BrBuffArrivalTime;
+execute.cc:                                               inst->exeToF1BrBuffArrivalTime = -1;
+execute.cc:						inst->exeToF1BrBuffLeaveTime = -1;
+execute.cc:					if (inst->f2inputbuffVul)
+execute.cc:						cpu.stats.fetch2InputBufferVul += inst->f2inputbuffVul;
+execute.cc:								*inst,inst->f2inputbuffVul);
+execute.cc:						inst->f2inputbuffVul = 0;
+execute.cc:					if ( inst->decodeInputBuffArrivalTime == 0 )
+execute.cc:					if ( inst->decodeInputBuffLeaveTime == 0 )
+execute.cc:					if (inst->executeInputBuffArrivalTime == 0  )
+execute.cc:					if ( inst->executeInputBuffLeaveTime == 0  )
+execute.cc:					if ( inst->executeInputBuffLeaveTime < inst->executeInputBuffArrivalTime )
+execute.cc:					if ( inst->decodeInputBuffLeaveTime < inst->decodeInputBuffArrivalTime )
+execute.cc:					if (inst->staticInst->isMemRef())
+execute.cc:						if (inst->lsqTransQueArrivalTime == 0)
+execute.cc:						if (inst->lsqTransQueLeaveTime == 0)
+execute.cc:						if (inst->lsqReqsQueArrivalTime == 0)
+execute.cc:						//		if (inst->staticInst->isStore() && inst->lsqStBuffArrivalTime == 0 )
+execute.cc:						//	if (inst->staticInst->isStore() && inst->lsqStBuffLeaveTime == 0 )
+execute.cc:						if (inst->inFUMemInstQueLeaveTime < inst->inFUMemInstQueArrivalTime)
+execute.cc:						else if (inst->inFUMemInstQueLeaveTime >= 0 && inst->inFUMemInstQueArrivalTime >= 0)
+execute.cc:							long tempVul = inst->inFUMemInstQueLeaveTime - inst->inFUMemInstQueArrivalTime;
+execute.cc:							inst->inFUMemInstQueLeaveTime = -1;
+execute.cc:							inst->inFUMemInstQueArrivalTime = -1;
+execute.cc:					if (inst->decodeInputBuffLeaveTime >= 0 && inst->decodeInputBuffArrivalTime >= 0)
+execute.cc:						long tempVul = inst->decodeInputBuffLeaveTime - inst->decodeInputBuffArrivalTime;
+execute.cc:						inst->decodeInputBuffLeaveTime = -1;
+execute.cc:						inst->decodeInputBuffArrivalTime = -1;
+execute.cc:					if (inst->executeInputBuffLeaveTime >= 0 && inst->executeInputBuffArrivalTime >= 0)
+execute.cc:						long tempVul = inst->executeInputBuffLeaveTime - inst->executeInputBuffArrivalTime;
+execute.cc:						inst->executeInputBuffLeaveTime = -1;
+execute.cc:						inst->executeInputBuffArrivalTime = -1;
+execute.cc:					if (inst->staticInst->isMemRef() &&  
+execute.cc:							inst->lsqTransQueLeaveTime  && inst->lsqTransQueArrivalTime  && inst->lsqReqsQueArrivalTime  &&
+execute.cc:							inst->lsqTransQueLeaveTime != -1 && inst->lsqTransQueArrivalTime != -1 && inst->lsqReqsQueArrivalTime != -1 )
+execute.cc:						long tempVul = inst->lsqTransQueLeaveTime  - inst->lsqTransQueArrivalTime;
+execute.cc:						tempVul = inst->lsqTransQueArrivalTime  - inst->lsqReqsQueArrivalTime;
+execute.cc:						inst->lsqReqsQueArrivalTime = -1;
+execute.cc:						inst->lsqTransQueLeaveTime = -1;
+execute.cc:						inst->lsqTransQueArrivalTime = -1;
+execute.cc:						if (inst->staticInst->isStore() && 0 )
+execute.cc:							if( inst->lsqStBuffLeaveTime  && inst->lsqStBuffArrivalTime)
+execute.cc:								tempVul = inst->lsqStBuffLeaveTime  - inst->lsqStBuffArrivalTime;
+execute.cc:							else if (inst->lsqStBuffArrivalTime)
+execute.cc:					if (inst->sbnumResultsVul >= 0 &&  inst->sbfuIndicesVul >= 0)
+execute.cc:cpu.stats.sbnumResultsVul += inst->sbnumResultsVul;
+execute.cc:cpu.stats.sbreturnCycleVul += inst->sbreturnCycleVul;
+execute.cc:cpu.stats.sbwritingInstVul += inst->sbwritingInstVul;
+execute.cc:cpu.stats.sbnumUnpredResultsVul += inst->sbnumUnpredResultsVul;
+execute.cc:cpu.stats.sbfuIndicesVul += inst->sbfuIndicesVul;
+execute.cc:						cpu.stats.sbVul += inst->sbnumResultsVul + inst->sbreturnCycleVul + inst->sbwritingInstVul + inst->sbnumUnpredResultsVul + inst->sbfuIndicesVul;
+execute.cc:						inst->sbnumResultsVul = -1;
+execute.cc:						inst->sbreturnCycleVul = -1;
+execute.cc:						inst->sbwritingInstVul = -1;
+execute.cc:						inst->sbnumUnpredResultsVul = -1;
+execute.cc:						inst->sbfuIndicesVul = -1;
+execute.cc:					if (inst->regFileVul >= 0 )
+execute.cc:						DPRINTF(regFileVUL, "Inst: %s gets commited, it addes %s to registerfile vulnerability.\n",*inst, inst->regFileVul);
+execute.cc:						cpu.stats.registerFileVul += inst->regFileVul;
+execute.cc:						inst->regFileVul = -1;
+execute.cc:					if (inst->inFlightInstQueLeaveTime < inst->inFlightInstQueArrivalTime)
+execute.cc:					else if (inst->inFlightInstQueLeaveTime >= 0 && inst->inFlightInstQueArrivalTime >= 0 )
+execute.cc:						cpu.stats.inFlightQueVul += inst->inFlightInstQueLeaveTime - inst->inFlightInstQueArrivalTime;
+execute.cc:						inst->inFlightInstQueLeaveTime = -1;
+execute.cc:						inst->inFlightInstQueArrivalTime = -1;
+execute.cc:			return inst->id.streamSeqNum == streamSeqNum;
+execute.cc:				ret = inFlightInsts->front().inst->id == inst->id;
+func_unit.hh:    bool isBubble() const { return inst->isBubble(); }
+dyn_inst.cc:        assert(bubbleInst->isBubble());
+dyn_inst.cc:        bubbleInst->incref();
+dyn_inst.cc:    return !(staticInst->isMicroop() && !staticInst->isLastMicroop());
+dyn_inst.cc:    return isInst() && staticInst->opClass() == No_OpClass;
+dyn_inst.cc:        os << inst.staticInst->getName();
+dyn_inst.cc:        unsigned int num_src_regs = staticInst->numSrcRegs();
+dyn_inst.cc:        unsigned int num_dest_regs = staticInst->numDestRegs();
+dyn_inst.cc:        if (!staticInst->isMacroop()) {
+dyn_inst.cc:                printRegName(regs_str, staticInst->srcRegIdx(src_reg));
+dyn_inst.cc:                printRegName(regs_str, staticInst->destRegIdx(dest_reg));
+dyn_inst.cc:                << std::setfill('0') << staticInst->machInst << std::dec;
+dyn_inst.cc:        staticInst->printFlags(flags, " ");
+dyn_inst.cc:            (staticInst->opClass() == No_OpClass ?
+dyn_inst.cc:                "(invalid)" : staticInst->disassemble(0,NULL)),
+dyn_inst.cc:            Enums::OpClassStrings[staticInst->opClass()],
+Binary file .execute.cc.swo matches
+fetch2.cc:    if (inst->isFault() || !inst->triedToPredict)
+fetch2.cc:        branchPredictor.squash(inst->id.fetchSeqNum,
+fetch2.cc:            branch.target, true, inst->id.threadId);
+fetch2.cc:        branchPredictor.update(inst->id.fetchSeqNum,
+fetch2.cc:            inst->id.threadId);
+fetch2.cc:        branchPredictor.squash(inst->id.fetchSeqNum,
+fetch2.cc:            branch.target /* Not used */, false, inst->id.threadId);
+fetch2.cc:        branchPredictor.squash(inst->id.fetchSeqNum,
+fetch2.cc:            branch.target, true, inst->id.threadId);
+fetch2.cc:    TheISA::PCState inst_pc = inst->pc;
+fetch2.cc:    assert(!inst->predictedTaken);
+fetch2.cc:    if (inst->staticInst->isControl() ||
+fetch2.cc:        inst->staticInst->isSyscall())
+fetch2.cc:        inst->triedToPredict = true;
+fetch2.cc:        if (branchPredictor.predict(inst->staticInst,
+fetch2.cc:            inst->id.fetchSeqNum, inst_pc,
+fetch2.cc:            inst->id.threadId))
+fetch2.cc:            inst->predictedTaken = true;
+fetch2.cc:            inst->predictedTarget = inst_pc;
+fetch2.cc:    if (inst->predictedTaken) {
+fetch2.cc:        expectedStreamSeqNum = inst->id.streamSeqNum;
+fetch2.cc:            inst->id.streamSeqNum, predictionSeqNum + 1,
+fetch2.cc:            inst->predictedTarget, inst);
+fetch2.cc:            *inst, inst->predictedTarget, predictionSeqNum);
+fetch2.cc:                /* Set the inputIndex to be the MachInst-aligned offset
+fetch2.cc:                dyn_inst->id.fetchSeqNum = fetchSeqNum;
+fetch2.cc:                dyn_inst->id.predictionSeqNum = predictionSeqNum;
+fetch2.cc:                assert(dyn_inst->id.execSeqNum == 0);
+fetch2.cc:                dyn_inst->pc = pc;
+fetch2.cc:                dyn_inst->fault = line_in->fault;
+fetch2.cc:                    "%d: %s\n", output_index, dyn_inst->fault->name());
+fetch2.cc:dyn_inst->decodeInputBuffArrivalTime = curTick();
+fetch2.cc:                    dyn_inst->id.fetchSeqNum = fetchSeqNum;
+fetch2.cc:                    dyn_inst->id.predictionSeqNum = predictionSeqNum;
+fetch2.cc://std::cout << dyn_inst->staticInst->getName()<< "\n";
+fetch2.cc:dyn_inst->decodeInputBuffArrivalTime = curTick();
+fetch2.cc:                    assert(dyn_inst->id.execSeqNum == 0);
+fetch2.cc:                    dyn_inst->staticInst = decoded_inst;
+fetch2.cc:                    dyn_inst->pc = pc;
+fetch2.cc:dyn_inst->decodeInputBuffArrivalTime = curTick();
+fetch2.cc:dyn_inst->decodeInputBuffArrivalTime = curTick();
+fetch2.cc:dyn_inst->f2inputbuffVul = f2inputbufferTemp;
+fetch2.cc:                if (DTRACE(MinorTrace) && !dyn_inst->isFault() &&
+fetch2.cc:                    dyn_inst->staticInst->isMacroop())
+fetch2.cc:                    dyn_inst->minorTraceInst(*this);
+fetch2.cc:dyn_inst->decodeInputBuffArrivalTime = curTick();
+fetch2.cc:dyn_inst->decodeInputBuffArrivalTime = curTick();
+Binary file .func_unit.cc.swp matches
+pipe_data.hh:        /* Suspend fetching for this thread (inst->id.threadId).
+Binary file .fetch2.cc.swm matches
+pipe_data.cc:        inst->reportData(os);
+Binary file .decode.cc.swp matches
+Binary file .lsq.cc.swn matches
+func_unit.cc:    inst->reportData(os);
+func_unit.cc:    TheISA::ExtMachInst mach_inst = inst->machInst;
+func_unit.cc:        if (timing.provides(inst->opClass()) &&
+func_unit.cc:                i, timing.description, inst->disassemble(0), mach_inst,
+func_unit.cc:            inst->disassemble(0), mach_inst);
+lsq.cc:			return inst->isInst() && inst->staticInst->isMemBarrier();
+lsq.cc:			inst->reportData(os);
+lsq.cc:			bool is_last_barrier = inst->id.execSeqNum >= lastMemBarrier;
+lsq.cc:			inst->lsqStBuffLeaveTime = curTick();
+lsq.cc:			if (inst->lsqStBuffArrivalTime)
+lsq.cc:				long  tempVul = inst->lsqStBuffLeaveTime - inst->lsqStBuffArrivalTime;
+lsq.cc:					inst->id.threadId);
+lsq.cc:					inst->id.threadId);
+lsq.cc:			request->inst->lsqStBuffArrivalTime = curTick();
+lsq.cc:							request->inst->lsqStBuffLeaveTime = curTick();
+lsq.cc:							if (request->inst->lsqStBuffArrivalTime == 0) 
+lsq.cc:							if (request->inst->lsqStBuffArrivalTime)
+lsq.cc:								long  tempVul = request->inst->lsqStBuffLeaveTime  - request->inst->lsqStBuffArrivalTime;
+lsq.cc:				if (!inst->inStoreBuffer) {
+lsq.cc:				if (request->inst->staticInst->isPrefetch()) {
+lsq.cc:				SimpleThread &thread = *cpu.threads[request->inst->id.threadId];
+lsq.cc:			request->inst->lsqTransQueArrivalTime = curTick();
+lsq.cc:				if (request->inst->id == inst->id) {
+lsq.cc:			response->inst->lsqTransQueLeaveTime = curTick();
+lsq.cc:			request->inst->inStoreBuffer = true;
+lsq.cc:			if (inst->traceData)
+lsq.cc:				inst->traceData->setAddr(addr);
+lsq.cc:					inst->pc.instAddr());
+lsq.cc:			request->inst->lsqReqsQueArrivalTime=curTick();
+lsq.cc:			inst->lsqReqsQueArrivalTime=curTick();
+lsq.cc:			assert(inst->isInst() && inst->staticInst->isMemBarrier());
+lsq.cc:			assert(inst->id.execSeqNum > lastMemBarrier);
+lsq.cc:			lastMemBarrier = inst->id.execSeqNum;
